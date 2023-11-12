@@ -9,12 +9,12 @@ class Migration(migrations.Migration):
         ('store', '0004_address_zip'),
     ]
 
-    operations = [
-        migrations.RunSQL("""
-                          INSERT INTO store_collection (title)
-                          VALUES ('collection1')
-                        """, """
-                          DELETE FROM store_collection
-                          WHERE title = 'collection1'
-                        """)
-    ]
+    # operations = [
+    #     migrations.RunSQL("""
+    #                       INSERT INTO store_collection (title)
+    #                       VALUES ('collection1')
+    #                     """, """
+    #                       DELETE FROM store_collection
+    #                       WHERE title = 'collection1'
+    #                     """)
+    # ]
