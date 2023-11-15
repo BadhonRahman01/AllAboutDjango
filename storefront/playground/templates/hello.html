@@ -12,10 +12,11 @@
     <h1>Hello World</h1>
 {% endif %}
 
-<ul>
-    {% for product in products %}
-        <li>{{ product.title }} ${{ product.price }}</li>
+{{ result }}
+<!-- <ul>
+    {% for order in orders %}
+        <li>{{ order.id }} - {{ order.customer.first_name }}</li>
     {% endfor %}
-</ul>
+</ul> -->
 </body>
 </html>
