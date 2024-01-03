@@ -14,7 +14,7 @@ class CollectionSerializer(serializers.ModelSerializer):
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ['id', 'title', 'unit_price','price_with_tax','collection']
+        fields = ['id', 'title', 'description', 'slug', 'inventory','unit_price','price_with_tax','collection']
     # id = serializers.IntegerField()
     # title = serializers.CharField(max_length=255)
     # price = serializers.DecimalField(max_digits=6, decimal_places=2, source='unit_price')
@@ -29,6 +29,23 @@ class ProductSerializer(serializers.ModelSerializer):
     def calculate_tax(self, product: Product):
         return product.unit_price * Decimal(1.1)
 
+
+    # def create(self, validated_data):
+    #     product = Product(**validated_data)
+    #     product.other = 1
+    #     product.save()
+    #     return product
+    #     # return Product.objects.create(**validated_data)
+
+    # def update(self, instance, validated_data):
+    #     instance.title = validated_data.get('title', instance.title)
+    #     instance.slug = validated_data.get('slug', instance.slug)
+    #     instance.description = validated_data.get('description', instance.description)
+    #     instance.inventory = validated_data.get('inventory', instance.inventory)
+    #     instance.unit_price = validated_data.get('unit_price', instance.unit_price)
+    #     instance.collection = validated_data.get('collection', instance.collection)
+    #     instance.save()
+    #     return instance
     # def validate(self, data):
     #     if data['title'] == data['description']:
     #         raise serializers.ValidationError('Title and description must be different from one another!')
